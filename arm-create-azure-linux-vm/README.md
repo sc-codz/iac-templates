@@ -4,3 +4,6 @@
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
 
+This template contains code that will help you easily deploy an azure linux vm.
+
+
