@@ -21,15 +21,12 @@
                 "description": "Specifies a username for the Virtual Machine."
             }
         },
-        "adminPublicKey": {
-            "type": "string",
-            "metadata": {
-                "description": "Specifies the SSH rsa public key file as a string. Use \"ssh-keygen -t rsa -b 2048\" to generate your SSH key pairs."
-            }
+        "adminPassword": {
+            "type": "securestring"
         },
         "vmSize": {
             "type": "string",
-            "defaultValue": "Standard_D2s_v3",
+            "defaultValue": "Standard_D1s_v2",
             "metadata": {
                 "description": "description"
             }
@@ -176,17 +173,7 @@
                 "osProfile": {
                     "computerName": "[variables('vmName')]",
                     "adminUsername": "[parameters('adminUsername')]",
-                    "linuxConfiguration": {
-                        "disablePasswordAuthentication": true,
-                        "ssh": {
-                            "publicKeys": [
-                                {
-                                    "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
-                                    "keyData": "[parameters('adminPublicKey')]"
-                                }
-                            ]
-                        }
-                    }
+                    "adminPassword": "[parameters('adminPassword')]"
                 },
                 "storageProfile": {
                     "imageReference": {
