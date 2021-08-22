@@ -61,7 +61,7 @@
                             "sourceAddressPrefix": "*",
                             "destinationAddressPrefix": "*",
                             "access": "Allow",
-                            "priority": 123,
+                            "priority": 100,
                             "direction": "Inbound"
                         }
                     }
@@ -78,30 +78,6 @@
             },
             "sku": {
                 "name": "Basic"
-            }
-        },
-        {
-            "comments": "Simple Network Security Group for subnet [variables('vNetSubnetName')]",
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2020-05-01",
-            "name": "[variables('networkSecurityGroupName2')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "securityRules": [
-                    {
-                        "name": "default-allow-22",
-                        "properties": {
-                            "priority": 1000,
-                            "access": "Allow",
-                            "direction": "Inbound",
-                            "destinationPortRange": "22",
-                            "protocol": "Tcp",
-                            "sourceAddressPrefix": "*",
-                            "sourcePortRange": "*",
-                            "destinationAddressPrefix": "*"
-                        }
-                    }
-                ]
             }
         },
         {
@@ -160,7 +136,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2019-12-01",
+            "apiVersion": "2019-07-01",
             "name": "[variables('vmName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -194,6 +170,25 @@
                     ]
                 }
             }
-        }
+        }//,
+    //     {
+    //   "name": "[concat(variables('vmName'),'/CustomScriptForLinux')]",
+    //   "type": "Microsoft.Compute/virtualMachines/extensions",
+    //   "location": "[parameters('location')]",
+    //   "apiVersion": "2015-06-15",
+    //   "properties": {
+    //     "publisher": "Microsoft.OSTCExtensions",
+    //     "type": "CustomScriptForLinux",
+    //     "typeHandlerVersion": "1.4",
+    //     "autoUpgradeMinorVersion": true,
+    //     "settings": {
+    //       "fileUris": [ "<to-do add anisble install script" ],
+    //       "commandToExecute": "sh install_ansible.sh"
+    //     }
+    //   },
+    //   "dependsOn": [
+    //     "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    //   ]
+    // }
     ]
 }
