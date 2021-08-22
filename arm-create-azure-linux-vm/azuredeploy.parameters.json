@@ -15,7 +15,7 @@
             "value": "" // TODO: Fill in parameter value
         },
         "vmSize": {
-            "value": "Standard_D1s_v2"
+            "value": "Standard_DS1_v2"
         }
     }
 }

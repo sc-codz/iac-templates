@@ -40,8 +40,7 @@
         "vmName": "[concat(parameters('projectName'), '-vm')]",
         "publicIPAddressName": "[concat(parameters('projectName'), '-ip')]",
         "networkInterfaceName": "[concat(parameters('projectName'), '-nic')]",
-        "networkSecurityGroupName": "[concat(parameters('projectName'), '-nsg')]",
-        "networkSecurityGroupName2": "[concat(variables('vNetSubnetName'), '-nsg')]"
+        "networkSecurityGroupName": "[concat(parameters('projectName'), '-nsg')]"
     },
     "resources": [
         {
@@ -86,7 +85,7 @@
             "name": "[variables('vNetName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName2'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
             ],
             "properties": {
                 "addressSpace": {
@@ -100,7 +99,7 @@
                         "properties": {
                             "addressPrefix": "[variables('vNetSubnetAddressPrefix')]",
                             "networkSecurityGroup": {
-                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName2'))]"
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
                             }
                         }
                     }
