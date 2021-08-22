@@ -26,9 +26,9 @@
         },
         "vmSize": {
             "type": "string",
-            "defaultValue": "Standard_D1s_v2",
+            "defaultValue": "Standard_DS1_v2",
             "metadata": {
-                "description": "description"
+                "description": "The Default Ubuntu VM Size is Standard_DS1_v2"
             }
         }
     },
