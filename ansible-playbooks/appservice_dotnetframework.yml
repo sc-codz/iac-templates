@@ -1,0 +1,25 @@
+- hosts: localhost
+  connection: local
+  vars:
+    resource_group: myansible-rg
+    webapp_name: mywebapp98w4
+    plan_name: mywebapp98w4Plan2
+    location: westus2
+  tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+
+    - name: Create App Service on Linux with Java Runtime
+      azure_rm_webapp:
+        resource_group: "{{ resource_group }}"
+        name: "{{ webapp_name }}"
+        plan:
+          resource_group: "{{ resource_group }}"
+          name: "{{ plan_name }}"
+          sku: S1
+          number_of_workers: 1
+        frameworks:
+          - name: "net_framework"
+            version: "4.6"
