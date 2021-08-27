@@ -11,7 +11,7 @@
         name: "{{ resource_group }}"
         location: "{{ location }}"
 
-    - name: Create App Service on Linux with Java Runtime
+    - name: Create an App Service
       azure_rm_webapp:
         resource_group: "{{ resource_group }}"
         name: "{{ webapp_name }}"
