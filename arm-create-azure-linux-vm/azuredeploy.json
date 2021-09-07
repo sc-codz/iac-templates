@@ -169,25 +169,25 @@
                     ]
                 }
             }
-        }//,
-    //     {
-    //   "name": "[concat(variables('vmName'),'/CustomScriptForLinux')]",
-    //   "type": "Microsoft.Compute/virtualMachines/extensions",
-    //   "location": "[parameters('location')]",
-    //   "apiVersion": "2015-06-15",
-    //   "properties": {
-    //     "publisher": "Microsoft.OSTCExtensions",
-    //     "type": "CustomScriptForLinux",
-    //     "typeHandlerVersion": "1.4",
-    //     "autoUpgradeMinorVersion": true,
-    //     "settings": {
-    //       "fileUris": [ "<to-do add anisble install script" ],
-    //       "commandToExecute": "sh install_ansible.sh"
-    //     }
-    //   },
-    //   "dependsOn": [
-    //     "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-    //   ]
-    // }
+        },
+        {
+            "apiVersion": "2019-07-01",
+            "name": "[concat(variables('vmName'),'/configureAnsible')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+            "publisher": "Microsoft.OSTCExtensions",
+                "type": "CustomScriptForLinux",
+                "typeHandlerVersion": "1.4",
+                "autoUpgradeMinorVersion": true,
+                "protectedSettings":{
+                    "commandToExecute": "sh ansible-ubuntu-config.sh",
+                    "fileUris":[]
+                }
+            }
+        }
     ]
 }
