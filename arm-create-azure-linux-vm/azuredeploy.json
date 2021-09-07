@@ -171,7 +171,7 @@
             }
         },
         {
-            "apiVersion": "2019-07-01",
+            "apiVersion": "2015-06-15",
             "name": "[concat(variables('vmName'),'/configureAnsible')]",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "location": "[parameters('location')]",
@@ -179,16 +179,13 @@
                 "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
             ],
             "properties": {
-            "publisher": "Microsoft.Compute",
-                "type": "CustomScriptExtension",
-                "typeHandlerVersion": "1.10",
+            "publisher": "Microsoft.OSTCExtensions",
+                "type": "CustomScriptForLinux",
+                "typeHandlerVersion": "1.4",
                 "autoUpgradeMinorVersion": true,
                 "settings":{
-                    "timestamp":123456789
-                },
-                "protectedSettings":{
                     "commandToExecute": "sh ansible-ubuntu-config.sh",
-                    "fileUris":[ "https://raw.githubusercontent.com/shemachristophe/iac-templates/main/custom-scripts/ansible-ubuntu-config.sh" ]
+                    "fileUris": [ "https://raw.githubusercontent.com/shemachristophe/iac-templates/main/custom-scripts/ansible-ubuntu-config.sh" ]
                 }
             }
         }
