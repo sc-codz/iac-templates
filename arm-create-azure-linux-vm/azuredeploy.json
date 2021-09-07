@@ -179,13 +179,16 @@
                 "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
             ],
             "properties": {
-            "publisher": "Microsoft.OSTCExtensions",
-                "type": "CustomScriptForLinux",
-                "typeHandlerVersion": "1.4",
+            "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "typeHandlerVersion": "1.10",
                 "autoUpgradeMinorVersion": true,
+                "settings":{
+                    "timestamp":123456789
+                },
                 "protectedSettings":{
                     "commandToExecute": "sh ansible-ubuntu-config.sh",
-                    "fileUris":[]
+                    "fileUris":[ "https://raw.githubusercontent.com/shemachristophe/iac-templates/main/custom-scripts/ansible-ubuntu-config.sh" ]
                 }
             }
         }
