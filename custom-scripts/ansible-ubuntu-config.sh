@@ -7,6 +7,6 @@ sudo apt -y install python3-pip
 sudo apt -y install ansible
 
 #install azure required modules 
-sudo apt -y install ansible[azure]
+sudo pip3 install ansible[azure]
 wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
 sudo pip3 install -r requirements-azure.txt 
