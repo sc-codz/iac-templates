@@ -2,9 +2,6 @@ sudo apt update
 
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 
-#install ansible
-sudo apt -y install ansible
-
 #install python 3.8
 sudo apt -y install python3.8
 
@@ -32,15 +29,23 @@ sudo apt -y install python3-pip
 #>
 
 #fix this by changing python3 version to python3.8
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 2
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 3
+sudo update-alternatives --config python3
 
 #here is the syntax for update-altenatives --install command
 #devuser@mydemo-vm:/usr/bin$ update-alternatives --install -help
 #update-alternatives: --install needs <link> <name> <path> <priority>
 
+
+#refresh bash
+source ~/.bashrc
+
 #update your PATH. Please note devuser is the administrator login id of my ubuntu 18.04 VM. Replace devuser with your admin user id.
 export PATH="/home/devuser/.local/bin/:$PATH"
 
+#install ansible
+sudo apt -y install ansible
 
 #install azure required modules 
 sudo pip3 install ansible[azure]
