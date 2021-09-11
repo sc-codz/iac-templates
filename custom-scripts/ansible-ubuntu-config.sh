@@ -28,3 +28,15 @@ sudo apt -y install python3-pip
 #sudo pip3 install ansible[azure]
 #wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
 #sudo pip3 install -r requirements-azure.txt 
+
+
+
+#at the time of this writing, the pycypto package (a collection of secure hash functions eg - SHA256) is does get installed automatically with python3.7+
+#to fix this, follow this instructions below reported on their github issue ticket page
+#https://github.com/pycrypto/pycrypto/issues/298
+
+#$ cd /usr/lib/python3/dist-packages/
+#wget  wget https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.7a1.tar.gz 
+#tar -zxvf pycrypto-2.7a1.tar.gz 
+#mv Crypto Crypto_
+#mv pycrypto-2.7a1 Crypto
