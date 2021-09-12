@@ -76,7 +76,7 @@
                 "publicIPAllocationMethod": "Static"
             },
             "sku": {
-                "name": "Basic"
+                "name": "Standard"
             }
         },
         {
