@@ -31,7 +31,7 @@ sudo apt -y install python3-pip
 
 
 
-#at the time of this writing, the pycypto package (a collection of secure hash functions eg - SHA256) is does get installed automatically with python3.7+
+#at the time of this writing, the pycrypto package (a collection of secure hash functions such as SHA256) does not get installed automatically with python3.7+
 #to fix this, follow this instructions below reported on their github issue ticket page
 #https://github.com/pycrypto/pycrypto/issues/298
 
