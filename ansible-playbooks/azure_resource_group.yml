@@ -1,0 +1,9 @@
+- hosts: localhost
+  connection: local
+  collections:
+   - azure.azcollection
+  tasks:
+  - name: Creating resource group
+      azure_rm_resourcegroup:
+      name: "myansible-rg"
+      location: westus2
