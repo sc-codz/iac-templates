@@ -1,4 +1,7 @@
+#CREATE AN AZURE DIRECTORY
 mkdir ~/.azure
+
+#CREATE A CREDENTIALS FILE
 vi ~/.azure/credentials
 
 [default]
