@@ -36,7 +36,7 @@ sudo apt -y install python3-pip
 #https://github.com/pycrypto/pycrypto/issues/298
 
 #$ cd /usr/lib/python3/dist-packages/
-#wget  wget https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.7a1.tar.gz 
+#sudo wget https://ftp.dlitz.net/pub/dlitz/crypto/pycrypto/pycrypto-2.7a1.tar.gz 
 #tar -zxvf pycrypto-2.7a1.tar.gz 
 #mv Crypto Crypto_
 #mv pycrypto-2.7a1 Crypto
