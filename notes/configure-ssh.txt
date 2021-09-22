@@ -1,0 +1,15 @@
+#create a private and public ssh key pair
+
+ssh-keygen -t rsa
+
+#grant execute permissions to owner (virtual machine)
+chmod 755 ~/.ssh 
+
+#set read only permissions to the authorized_keys file
+
+touch ~/.ssh/authorized_keys
+chmod 644 ~/.ssh/authorized_keys
+
+
+next we want to ssh to the ubuntu virtual machine without entering our password
+ssh-copy-id <username_of_your_virtual_machine>@127.0.0.1
